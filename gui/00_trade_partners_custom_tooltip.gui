@@ -118,7 +118,7 @@ type RegularTooltip_MarketWorldMarketExportPartners = RegularTooltip {
 
 # Called from the tooltip for another country's market 
 # Market = other country's market
-type RegularTooltip_MarketOtherMarketImports = RegularTooltip {
+type RegularTooltip_MarketOtherMarketImportExport = RegularTooltip {
 		blockoverride "tooltip_content_after" {
 			flowcontainer = {
 				direction = vertical
@@ -216,14 +216,20 @@ type RegularTooltip_MarketOtherMarketImports = RegularTooltip {
 }
 
 type FancyTooltip_Market = FancyTooltipWidgetType {
-		blockoverride "text" {
-			datacontext = "[Country.Market]"
-			text = "TRADE_PARTNERS_MARKET_TOOLTIP"
-			tooltipwidget = {
-				visible = "[GreaterThanOrEqualTo_CFixedPoint(Market.ScriptValue('trade_partners_total_trade'), '(CFixedPoint)1')]"
-				RegularTooltip_MarketOtherMarketImports = {
+		blockoverride "tooltip_content_before_before" {
+			flowcontainer = {
+				direction = vertical
+				custom_tooltip_textbox = {
+					text = "TRADE_PARTNERS_MARKET_TOOLTIP_VALUES"
 				}
+				tooltipwidget = {
+					RegularTooltip_MarketOtherMarketImportExport = {}
+				}	
 			}
+		}
+
+		blockoverride "text" {
+			text = "DATA_MARKET_NAME_TOOLTIP"
 		}
 
 		blockoverride "name" {
