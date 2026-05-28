@@ -1,38 +1,61 @@
 trade_partners_set_import_partners = {
-	clear_variable_list = trade_partners_all_markets_import
-	save_temporary_scope_as = target_country
+	save_temporary_scope_as = base_market
+	
+	owner = {
+		save_temporary_scope_as = base_market_owner
+		clear_variable_list = trade_partners_all_markets_import
+	}
+	
 	ordered_market = {
+		limit = {
+			NOT = { this = scope:base_market }
+		}
+		
 		order_by = trade_partners_total_exports_to_target
-		save_temporary_scope_as = target_market 
-		scope:target_country = {
-			add_to_variable_list = {
-				name = trade_partners_all_markets_import
-				target = scope:target_market
+		save_temporary_scope_as = iter_market 
+		
+		if = {
+			limit = { trade_partners_total_exports_to_target > 0 }
+			# 将找到的目标市场，存入“市场拥有者(国家)”的变量列表中
+			scope:base_market_owner = {
+				add_to_variable_list = {
+					name = trade_partners_all_markets_import
+					target = scope:iter_market
+				}
 			}
 		}
 	}
 }
 
 trade_partners_set_export_partners = {
-	clear_variable_list = trade_partners_all_markets_export
-	save_temporary_scope_as = target_country
+	save_temporary_scope_as = base_market
+	
+	owner = {
+		save_temporary_scope_as = base_market_owner
+		clear_variable_list = trade_partners_all_markets_export
+	}
+	
 	ordered_market = {
+		limit = {
+			NOT = { this = scope:base_market }
+		}
+		
 		order_by = trade_partners_total_imports_from_target
-		save_temporary_scope_as = target_market 
-		scope:target_country = {
-			add_to_variable_list = {
-				name = trade_partners_all_markets_export
-				target = scope:target_market
+		save_temporary_scope_as = iter_market 
+		
+		if = {
+			limit = { trade_partners_total_imports_from_target > 0 }
+			scope:base_market_owner = {
+				add_to_variable_list = {
+					name = trade_partners_all_markets_export
+					target = scope:iter_market
+				}
 			}
 		}
 	}
 }
 
-trade_partners_set_target_country = {
-	set_global_variable = {
-		name = trade_partners_target_market
-		value = this.market
-	}
+trade_partners_execute_market_update = {
 	trade_partners_set_export_partners = yes
 	trade_partners_set_import_partners = yes
 }
