@@ -1,6 +1,6 @@
 on_monthly_pulse_country = {
 	on_actions = {
- 		on_actions_trade_partners_set_target_player
+ 		on_actions_trade_partners_global_loop
 	}
 }
 
@@ -10,18 +10,24 @@ on_game_started_after_lobby = {
 	}
 }
 
-on_actions_trade_partners_set_target_player = {
-	trigger = { is_local_player = yes }
+on_actions_trade_partners_global_loop = {
 	effect = {
-		trade_partners_set_target_country = yes
+		every_market = {
+			limit = {
+				is_player = yes
+			}
+			trade_partners_execute_market_update = yes
+		}
 	}
 }
 
 on_actions_trade_partners_game_init = {
 	effect = {
-		every_country = {
-			limit = { is_local_player = yes }
-			trade_partners_set_target_country = yes
+		every_market = {
+			limit = {
+				is_player = yes
+			}
+			trade_partners_execute_market_update = yes
 		}
 	}
 }
