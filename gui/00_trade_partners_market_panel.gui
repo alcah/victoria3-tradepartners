@@ -1,118 +1,106 @@
-# COPY-PASTED FOR NOW
-@panel_width_minus_10 = 530			# used to be 450
-@panel_width = 540  				# used to be 460
-@panel_width_half = 270				# used to be 230
-@panel_width_plus_10 = 550  		# used to be 470
-@panel_width_plus_14 = 554			# used to be 474
-@panel_width_plus_14_half = 277		# used to be 237
-@panel_width_plus_20 = 560			# used to be 480
-@panel_width_plus_30 = 570			# used to be 490
-@panel_width_plus_70 = 610			# used to be 530
-
 types market_panel {
-	type trade_partners_charts = flowcontainer {
-	spacing = 10
-	margin_bottom = 10
-	parentanchor = hcenter
-	datacontext = "[AccessPlayer]"
-	compact_chart = {
-		blockoverride "datamodel" {
-			datamodel = "[Country.MakeScope.GetList('trade_partners_all_markets_export')]"
-		}
+    type trade_partners_charts = flowcontainer {
+        spacing = 10
+        margin_bottom = 10
+        parentanchor = hcenter
+        
+        visible = "[GreaterThan_int32(Market.GetOwner.MakeScope.GetList('trade_partners_all_markets_export').GetSize, '(int32)0')]"
+        compact_chart = {
+            blockoverride "datamodel" {
+                datamodel = "[Market.GetOwner.MakeScope.GetList('trade_partners_all_markets_export')]"
+            }
 
-		blockoverride "show_more_button_visibility" {
-			visible = "[GreaterThan_int32(GetDataModelSize(GetGlobalList('trade_partners_all_markets_export'), '(int32)3')]"
-		}
+            blockoverride "show_more_button_visibility" {
+                visible = "[GreaterThan_int32(GetDataModelSize(Market.GetOwner.MakeScope.GetList('trade_partners_all_markets_export')), '(int32)3')]"
+            }
 
-		blockoverride "heading" {
-			text = "Export Partners"
-		}
+            blockoverride "heading" {
+                text = "Export_Partners"
+            }
 
-		blockoverride "tooltip" {
-			tooltip = "TRADE_PARTNERS_EXPORT_PARTNERS_TITLE"
+            blockoverride "tooltip" {
+                tooltip = "TRADE_PARTNERS_EXPORT_PARTNERS_TITLE"
+                tooltipwidget = {
+                    RegularTooltip_MarketWorldMarketExportPartners = {}
+                }
+            }
 
-			tooltipwidget = {
-				RegularTooltip_MarketWorldMarketExportPartners = {}
-			}
-		}
+            blockoverride "pieslice" {
+                value = "[GuiScope.SetRoot( Scope.GetMarket.MakeScope ).AddScope('base_market', Market.MakeScope).ScriptValue('trade_partners_total_imports_from_target')]"
+            }
 
-		blockoverride "pieslice" {
-			value = "[Scope.GetMarket.MakeScope.ScriptValue('trade_partners_total_imports_from_target')]"
-		}
+            blockoverride "color" {
+                color = "[Scope.GetMarket.GetOwner.GetMapColor]"
+            }
+            
+            blockoverride "pie_item_goto_button" {
+                button = {
+                    using = clean_button
+                    size = { 100% 100% }
+                    onclick = "[InformationPanelBar.OpenMarketPanel(Scope.GetMarket.Self)]"    
+                }
+            }
 
-		blockoverride "color" {
-			color = "[Scope.GetMarket.GetOwner.GetMapColor]"
-		}
-		
-		blockoverride "pie_item_goto_button" {
-			button = {
-				using = clean_button
-				size = { 100% 100% }
-				onclick = "[InformationPanelBar.OpenMarketPanel(Scope.GetMarket.Self)]"	
-			}
-		}
+            blockoverride "leftside_info" {
+                visible = no
+            }
 
-		blockoverride "leftside_info" {
-			visible = no
-		}
+            blockoverride "rightside1_info" {
+                raw_text = " [Scope.GetMarket.GetOwner.GetFlagTextIcon] [GuiScope.SetRoot( Scope.GetMarket.MakeScope ).AddScope('base_market', Market.MakeScope).ScriptValue('trade_partners_total_imports_from_target')|v0]"
+            }
 
-		blockoverride "rightside1_info" {
-			text = " [Scope.GetMarket.GetOwner.GetFlagTextIcon] [Scope.GetMarket.MakeScope.ScriptValue('trade_partners_total_imports_from_target')|vD]"
-		}
+            blockoverride "rightside2_info" {
+                visible = no
+            }
+        }
 
-		blockoverride "rightside2_info" {
-			visible = no
-		}
-	}
+        compact_chart = {
+            blockoverride "datamodel" {
+                datamodel = "[Market.GetOwner.MakeScope.GetList('trade_partners_all_markets_import')]"
+            }
 
-	compact_chart = {
-		blockoverride "datamodel" {
-			datamodel = "[Country.MakeScope.GetList('trade_partners_all_markets_import')]"
-		}
+            blockoverride "show_more_button_visibility" {
+                visible = "[GreaterThan_int32(GetDataModelSize(Market.GetOwner.MakeScope.GetList('trade_partners_all_markets_import')), '(int32)3')]"
+            }
 
-		blockoverride "show_more_button_visibility" {
-			visible = "[GreaterThan_int32(GetDataModelSize(GetGlobalList('trade_partners_all_markets_import'), '(int32)3')]"
-		}
+            blockoverride "heading" {
+                text = "Import_Partners"
+            }
 
-		blockoverride "heading" {
-			text = "Import Partners"
-		}
+            blockoverride "tooltip" {
+                tooltip = "TRADE_PARTNERS_IMPORT_PARTNERS_TITLE"
+                tooltipwidget = {
+                    RegularTooltip_MarketWorldMarketImportPartners = {}
+                }
+            }
 
-		blockoverride "tooltip" {
-			tooltip = "TRADE_PARTNERS_IMPORT_PARTNERS_TITLE"
+            blockoverride "pieslice" {
+                value = "[GuiScope.SetRoot( Scope.GetMarket.MakeScope ).AddScope('base_market', Market.MakeScope).ScriptValue('trade_partners_total_exports_to_target')]"
+            }
 
-			tooltipwidget = {
-				RegularTooltip_MarketWorldMarketImportPartners = {}
-			}
-		}
+            blockoverride "color" {
+                color = "[Scope.GetMarket.GetOwner.GetMapColor]"
+            }
+            
+            blockoverride "pie_item_goto_button" {
+                button = {
+                    using = clean_button
+                    size = { 100% 100% }
+                    onclick = "[InformationPanelBar.OpenMarketPanel(Scope.GetMarket.Self)]"    
+                }
+            }
 
-		blockoverride "pieslice" {
-			value = "[Scope.GetMarket.MakeScope.ScriptValue('trade_partners_total_exports_to_target')]"
-		}
+            blockoverride "leftside_info" {
+                visible = no
+            }
 
-		blockoverride "color" {
-			color = "[Scope.GetMarket.GetOwner.GetMapColor]"
-		}
-		
-		blockoverride "pie_item_goto_button" {
-			button = {
-				using = clean_button
-				size = { 100% 100% }
-				onclick = "[InformationPanelBar.OpenMarketPanel(Scope.GetMarket.Self)]"	
-			}
-		}
+            blockoverride "rightside1_info" {
+                raw_text = " [Scope.GetMarket.GetOwner.GetFlagTextIcon] [GuiScope.SetRoot( Scope.GetMarket.MakeScope ).AddScope('base_market', Market.MakeScope).ScriptValue('trade_partners_total_exports_to_target')|v0]"
+            }
 
-		blockoverride "leftside_info" {
-			visible = no
-		}
-
-		blockoverride "rightside1_info" {
-			text = " [Scope.GetMarket.GetOwner.GetFlagTextIcon] [Scope.GetMarket.MakeScope.ScriptValue('trade_partners_total_exports_to_target')|vD]"
-		}
-
-		blockoverride "rightside2_info" {
-			visible = no
-		}
-	}
-}
+            blockoverride "rightside2_info" {
+                visible = no
+            }
+        }
+    }
 }
