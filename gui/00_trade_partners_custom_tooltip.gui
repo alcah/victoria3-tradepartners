@@ -220,6 +220,7 @@ type FancyTooltip_Market = FancyTooltipWidgetType {
 			flowcontainer = {
 				direction = vertical
 				custom_tooltip_textbox = {
+					datacontext = "[Market]"
 					text = "TRADE_PARTNERS_MARKET_TOOLTIP_VALUES"
 				}
 				tooltipwidget = {
