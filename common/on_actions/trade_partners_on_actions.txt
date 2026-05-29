@@ -13,6 +13,9 @@ on_game_started_after_lobby = {
 on_actions_trade_partners_market_update = {
 	effect = {
 		every_market = {
+			limit = {
+				market_trade = { value > 0 }
+			}
 			trade_partners_market_update = yes
 		}
 	}
