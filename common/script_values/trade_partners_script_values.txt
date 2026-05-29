@@ -1,4 +1,4 @@
-trade_partners_total_imports_from_target = {
+﻿trade_partners_total_imports_from_target = {
 	value = "market_imports(scope:base_market)"
 }
 
