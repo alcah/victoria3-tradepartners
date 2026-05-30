@@ -9,6 +9,12 @@ Things of note:
 - With very low trade volumes you might notice the sum of goods doesn't match the total volume. It's possible to trade small fractions of goods with the world market which isn't normally displayed so there's a choice between inconsistent maths and cluttering the UI with things like 0.02 fish. 
 
 The mod is safe to add or remove any time and has relatively minimal performance impact (adds ~200ms to month ticks on a Ryzen 7950 based on the in-game profiler).
-Currently supports English, Chinese, and Turkish localisation (big thanks to @Geass for the latter 2)
+
+Supported Languages (big thanks to contributors for non-english localisation):
+ - English
+ - Chinese (@Geass)
+ - Turkish (@Geass)
+ - Korean (@N1X)
+
 Contributions are very welcome, especially for mod compatibility and further localisation
 https://github.com/alcah/victoria3-tradepartners
