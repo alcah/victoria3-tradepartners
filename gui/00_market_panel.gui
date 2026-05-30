@@ -291,9 +291,13 @@ types market_panel
 							}
 						}
 					}
-
-					# Trade Partners
-					trade_partners_charts = {}
+					flowcontainer = {
+						visible = "[Not(GetVariableSystem.Exists( 'market_world_market_charts' ))]" # Flipped to show by Default
+						spacing = 10
+						margin_bottom = 10
+						parentanchor = hcenter
+						trade_partners_charts = {}
+					}
 				}
 
 				section_header_button = {
