@@ -1,4 +1,4 @@
-# COPY-PASTED FOR NOW
+﻿# COPY-PASTED FOR NOW
 @panel_width_minus_10 = 530			# used to be 450
 @panel_width = 540  				# used to be 460
 @panel_width_half = 270				# used to be 230
@@ -293,9 +293,7 @@ types market_panel
 					}
 
 					# Trade Partners
-					trade_partners_charts = {
-						visible = "[And(Not(GetVariableSystem.Exists( 'market_world_market_charts')), EqualTo_int32(Market.GetOwner.GetID, GetGlobalVariable('trade_partners_target_market').GetMarket.GetOwner.GetID))]"
-					}
+					trade_partners_charts = {}
 				}
 
 				section_header_button = {

@@ -1,17 +1,15 @@
 *This is a mod for displaying trade relations in the game Victoria 3 by Paradox Interactive*
 
-Have you ever looked at an old trade privilege treaty and wondered if it's still worth the diplo points? How much are you trading with that country anyway? Would it be an economic risk to declare war?
-This mod helps you answer those questions. Specifically:
-- it'll tell you whom you're trading with
-- and for any country, what you're trading
+Have you ever wondered who you're actually trading with through the world market? This mod will let you know.
+It adds charts to the market trade tab showing import and export partners and also tooltips for the player's trade with other markets. Check the images for details.
+This information is otherwise obscure in-game and would have to be pieced together from the goods list.
 
-It adds charts to the trade tab of the player's market screen showing import and export partners and also tooltips for other markets. Check the images for details.
-This information is otherwise obscured in-game and would have to be pieced together from the goods list.
+Caveats:
+- The GUI is a WIP right now and not compatible with other GUI mods that edit the market panel (eg. dense market details)
+- Not a bug, but it's possible to trade with yourself via the world market if a combination of local price and trade advantage make it profitable for trade centres in 2 different states. Currently this shows up as importing/exporting to your own market. This can be hidden in an update if it's too confusing.
+- With very low trade volumes you might notice the sum of goods doesn't match the total volume. This is because it's possible to trade fractions of goods with the world market which isn't normally displayed. Purely a visual issue right now.
 
-That said, this comes with some caveats:
-- Charts will only be available after a month has passed since import/export data is collected by script
-- For technical reasons only the player's import/export is tracked. If you want to explore another country's trade relations you can make a save, swap to them and wait for a month tick
-- The GUI is very much a WIP right now and not compatible with other GUI mods that edit the market panel (eg. dense market details)
+The mod is safe to add or remove any time and has relatively minimal performance impact (adds <200ms to month ticks on a Ryzen 7950 based on the in-game profiler). Recently updated to track all markets and work in multiplayer.
 
-Contributions are very welcome, especially for compatibility and localisation
+Contributions are very welcome, especially for mod compatibility and localisation
 https://github.com/alcah/victoria3-tradepartners

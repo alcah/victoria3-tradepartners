@@ -1,4 +1,4 @@
-@tooltip_max_width = 550 #copied from tooltip.gui
+﻿@tooltip_max_width = 550 #copied from tooltip.gui
 
 @tooltip_fixed_width = 500 #for 2 column layouts etc, since max_width is quite wide
 @tooltip_fixed_column_width = 245 #tooltip_fixed_width/2 - 10/2
@@ -118,7 +118,7 @@ type RegularTooltip_MarketWorldMarketExportPartners = RegularTooltip {
 
 # Called from the tooltip for another country's market 
 # Market = other country's market
-type RegularTooltip_MarketOtherMarketImports = RegularTooltip {
+type RegularTooltip_MarketOtherMarketImportExport = RegularTooltip {
 		blockoverride "tooltip_content_after" {
 			flowcontainer = {
 				direction = vertical
@@ -216,12 +216,20 @@ type RegularTooltip_MarketOtherMarketImports = RegularTooltip {
 }
 
 type FancyTooltip_Market = FancyTooltipWidgetType {
-		blockoverride "text" {
-			text = "TRADE_PARTNERS_MARKET_TOOLTIP"
-			tooltipwidget = {
-				#visible = "[GreaterThanOrEqualTo_CFixedPoint( GuiScope.SetRoot( Market.MakeScope ).AddScope('base_market', GetPlayer.GetMarket.MakeScope).ScriptValue('trade_partners_total_trade'), '(CFixedPoint)1')]"
-                RegularTooltip_MarketOtherMarketImports = {}
+		blockoverride "tooltip_content_before_before" {
+			flowcontainer = {
+				direction = vertical
+				custom_tooltip_textbox = {
+					text = "TRADE_PARTNERS_MARKET_TOOLTIP_VALUES"
+				}
+				tooltipwidget = {
+					RegularTooltip_MarketOtherMarketImportExport = {}
+				}	
 			}
+		}
+
+		blockoverride "text" {
+			text = "DATA_MARKET_NAME_TOOLTIP"
 		}
 
 		blockoverride "name" {

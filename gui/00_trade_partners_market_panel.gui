@@ -1,10 +1,11 @@
-types market_panel {
+﻿types market_panel {
     type trade_partners_charts = flowcontainer {
         spacing = 10
         margin_bottom = 10
         parentanchor = hcenter
         
-        visible = "[GreaterThan_int32(Market.GetOwner.MakeScope.GetList('trade_partners_all_markets_export').GetSize, '(int32)0')]"
+        # Check both since it's possbible to have just one side
+        visible = "[Or(GreaterThan_int32(GetDataModelSize(Market.GetOwner.MakeScope.GetList('trade_partners_all_markets_export')), '(int32)0'),GreaterThan_int32(GetDataModelSize(Market.GetOwner.MakeScope.GetList('trade_partners_all_markets_import')), '(int32)0'))]"
         compact_chart = {
             blockoverride "datamodel" {
                 datamodel = "[Market.GetOwner.MakeScope.GetList('trade_partners_all_markets_export')]"
@@ -15,7 +16,7 @@ types market_panel {
             }
 
             blockoverride "heading" {
-                text = "Export_Partners"
+                text = "TRADE_PARTNERS_EXPORT_PARTNERS_GRAPH_TITLE"
             }
 
             blockoverride "tooltip" {
@@ -46,7 +47,7 @@ types market_panel {
             }
 
             blockoverride "rightside1_info" {
-                raw_text = " [Scope.GetMarket.GetOwner.GetFlagTextIcon] [GuiScope.SetRoot( Scope.GetMarket.MakeScope ).AddScope('base_market', Market.MakeScope).ScriptValue('trade_partners_total_imports_from_target')|v0]"
+                raw_text = " [Scope.GetMarket.GetOwner.GetFlagTextIcon] [GuiScope.SetRoot( Scope.GetMarket.MakeScope ).AddScope('base_market', Market.MakeScope).ScriptValue('trade_partners_total_imports_from_target')|vD]"
             }
 
             blockoverride "rightside2_info" {
@@ -64,7 +65,7 @@ types market_panel {
             }
 
             blockoverride "heading" {
-                text = "Import_Partners"
+                text = "TRADE_PARTNERS_IMPORT_PARTNERS_GRAPH_TITLE"
             }
 
             blockoverride "tooltip" {
@@ -95,7 +96,7 @@ types market_panel {
             }
 
             blockoverride "rightside1_info" {
-                raw_text = " [Scope.GetMarket.GetOwner.GetFlagTextIcon] [GuiScope.SetRoot( Scope.GetMarket.MakeScope ).AddScope('base_market', Market.MakeScope).ScriptValue('trade_partners_total_exports_to_target')|v0]"
+                raw_text = " [Scope.GetMarket.GetOwner.GetFlagTextIcon] [GuiScope.SetRoot( Scope.GetMarket.MakeScope ).AddScope('base_market', Market.MakeScope).ScriptValue('trade_partners_total_exports_to_target')|vD]"
             }
 
             blockoverride "rightside2_info" {
