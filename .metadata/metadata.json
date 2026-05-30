@@ -1,7 +1,7 @@
 {
   "name" : "Trade Partners",
   "id" : "com.cat.trade-partners",
-  "version" : "0.1.2",
+  "version" : "0.1.3",
   "game_id" : "victoria3",
   "picture" : "thumbnail.png",
   "supported_game_version" : "1.13.*",
