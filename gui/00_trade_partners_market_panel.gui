@@ -1,8 +1,6 @@
 ﻿types market_panel {
     type trade_partners_charts = flowcontainer {
-        spacing = 10        
-        # Check both since it's possbible to have just one side
-       visible = "[Or(GreaterThan_int32(GetDataModelSize(Market.GetOwner.MakeScope.GetList('trade_partners_all_markets_export')), '(int32)0'),GreaterThan_int32(GetDataModelSize(Market.GetOwner.MakeScope.GetList('trade_partners_all_markets_import')), '(int32)0'))]"
+        spacing = 10
         compact_chart = {
             blockoverride "datamodel" {
                 datamodel = "[Market.GetOwner.MakeScope.GetList('trade_partners_all_markets_export')]"
