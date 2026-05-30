@@ -7,9 +7,10 @@ This information is otherwise obscure in-game and would have to be pieced togeth
 Caveats:
 - The GUI is a WIP right now and not compatible with other GUI mods that edit the market panel (eg. dense market details)
 - Not a bug, but it's possible to trade with yourself via the world market if a combination of local price and trade advantage make it profitable for trade centres in 2 different states. Currently this shows up as importing/exporting to your own market. This can be hidden in an update if it's too confusing.
-- With very low trade volumes you might notice the sum of goods doesn't match the total volume. This is because it's possible to trade fractions of goods with the world market which isn't normally displayed. Purely a visual issue right now.
+- With very low trade volumes you might notice the sum of goods doesn't match the total volume. It's possible to trade small fractions of goods with the world market which isn't normally displayed so there's a choice between inconsistent maths and cluttering the UI with things like 0.02 fish. 
 
-The mod is safe to add or remove any time and has relatively minimal performance impact (adds <200ms to month ticks on a Ryzen 7950 based on the in-game profiler). Recently updated to track all markets and work in multiplayer.
+The mod is safe to add or remove any time and has relatively minimal performance impact (adds worst-case ~200ms to month ticks on a Ryzen 7950 based on the in-game profiler).
 
-Contributions are very welcome, especially for mod compatibility and localisation
+Currently supports English, Chinese, and Turkish localisation (big thanks to @Geass for the latter 2)
+Contributions are very welcome, especially for mod compatibility and further localisation
 https://github.com/alcah/victoria3-tradepartners
