@@ -11,13 +11,13 @@ macro = {
 }
 
 macro = {
-	description = "Check if the markets trade"
-	definition = "TradePartnersImportsFromP(Importer, Exporter)"
+	description = "True if root market imports from target market"
+	definition = "TradePartnersIsImporterFrom(Importer, Exporter)"
 	replace_with = "GreaterThanOrEqualTo_CFixedPoint(TradePartnersGetImportsFrom(Importer, Exporter), '(CFixedPoint)1')"
 }
 
 macro = {
-	description = "Check if the markets trade"
-	definition = "TradePartnersExportsToP(Exporter, Importer)"
-	replace_with = "GreaterThanOrEqualTo_CFixedPoint(TradePartnersGetExportsTo(Importer, Exporter), '(CFixedPoint)1')"
+	description = "True if root market exports to target market"
+	definition = "TradePartnersIsExporterTo(Exporter, Importer)"
+	replace_with = "GreaterThanOrEqualTo_CFixedPoint(TradePartnersGetExportsTo(Exporter, Importer), '(CFixedPoint)1')"
 }
