@@ -300,6 +300,13 @@ types market_panel
 						spacing = 10
 						margin_bottom = 10
 						parentanchor = hcenter
+						state = {
+							name = recalc_trade
+							next = recalc_trade
+							duration = 5
+							trigger_on_create = yes
+							on_finish = "[GetScriptedGui('trade_partners_scripted_gui').Execute(GuiScope.SetRoot(MarketPanel.GetMarket.MakeScope).End)]"
+						}
 						trade_partners_charts = {}
 					}
 				}
