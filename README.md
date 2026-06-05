@@ -17,6 +17,7 @@ Supported Languages (big thanks to contributors for non-english localisation):
  - Turkish (@Geass)
  - Korean (@N1X)
  - Spanish (@Kropotkin)
+ - Portuguese (@Bulbasaurito)
 
 Contributions are very welcome, especially for mod compatibility and further localisation
 https://github.com/alcah/victoria3-tradepartners
