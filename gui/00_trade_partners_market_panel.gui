@@ -291,7 +291,7 @@ types market_panel
 							}
 						}
 					}
-					flowcontainer = {
+  					flowcontainer = {
 						visible = "[Not(GetVariableSystem.Exists( 'market_world_market_charts' ))]" # Flipped to show by Default
 						spacing = 10
 						margin_bottom = 10
@@ -387,6 +387,12 @@ types market_panel
 					blockoverride "onclick_showless" {
 						visible = "[Not(GetVariableSystem.Exists( 'market_filters' ))]" # Flipped to show by Default
 					}
+				}
+
+				### SEARCH
+				search_bar = {
+					parentanchor = hcenter
+					datacontext = "[MarketPanel.GetSearchBar]"
 				}
 
 				flowcontainer = {
@@ -861,3 +867,4 @@ types market_panel
 		}
 	}
 }
+
