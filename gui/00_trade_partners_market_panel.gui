@@ -13,7 +13,11 @@ types market_panel
 {
 	type market_panel = default_block_window {
 		name = "market_panel"
-		
+		state = {
+			name = _show
+			duration = 0
+			on_start = "[GetScriptedGui('trade_partners_scripted_gui').Execute(GuiScope.SetRoot(MarketPanel.GetMarket.MakeScope).End)]"
+		}
 		blockoverride "animation_state_block" {
 			state = {
 				name = _show
