@@ -11,7 +11,7 @@ Things to note:
 
 The mod is safe to add or remove any time and has relatively minimal performance impact (adds ~100ms to month ticks on a Ryzen 7950 based on the in-game profiler).
 
-Supported Languages (big thanks to contributors for non-english localisation):
+Supported Languages (big thanks to contributors for non-English localisation):
  - English
  - Chinese (@Geass)
  - Turkish (@Geass)
@@ -19,6 +19,7 @@ Supported Languages (big thanks to contributors for non-english localisation):
  - Spanish (@Kropotkin)
  - Portuguese (@Bulbasaurito)
  - Russian (@ищу работу)
-
+ - German (@Maxim-604)
+ 
 Contributions are very welcome, especially for localisation.
 https://github.com/alcah/victoria3-tradepartners
