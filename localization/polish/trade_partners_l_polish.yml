@@ -1,0 +1,12 @@
+﻿l_polish:
+ TRADE_PARTNERS_MARKET_TOOLTIP_IMPORT: "@market_imports! Importuje [TradePartnersGetImportsFrom(Market, GetPlayer.GetMarket)|v0] dobra z [GetPlayer.GetMarket.GetOwner.GetFlagTextIcon] [GetPlayer.GetMarket.GetName]"
+ TRADE_PARTNERS_MARKET_TOOLTIP_EXPORT: "@market_exports! Eksportuje [TradePartnersGetExportsTo(Market, GetPlayer.GetMarket)|v0] dobra do [GetPlayer.GetMarket.GetOwner.GetFlagTextIcon] [GetPlayer.GetMarket.GetName]"
+ TRADE_PARTNERS_MARKET_TOOLTIP_VALUES: "[MakeLineIf(TradePartnersIsImporterFrom(Market, GetPlayer.GetMarket),'TRADE_PARTNERS_MARKET_TOOLTIP_IMPORT')][MakeLineIf(TradePartnersIsExporterTo(Market, GetPlayer.GetMarket),'TRADE_PARTNERS_MARKET_TOOLTIP_EXPORT')]"
+ TRADE_PARTNERS_OTHER_MARKET_EXPORTS_TOOLTIP: "#white #b @market_exports! [Market.GetName] Eksportuje do [GetPlayer.GetMarket.GetOwner.GetFlagTextIcon] [GetPlayer.GetMarket.GetName]\n#!#!Ilość: [TradePartnersGetExportsTo(Market, GetPlayer.GetMarket)|v0]"
+ TRADE_PARTNERS_OTHER_MARKET_IMPORTS_TOOLTIP: "#white #b @market_imports! [Market.GetName] Importuje z [GetPlayer.GetMarket.GetOwner.GetFlagTextIcon] [GetPlayer.GetMarket.GetName]\n#!#!Ilość: [TradePartnersGetImportsFrom(Market, GetPlayer.GetMarket)|v0]"
+ TRADE_PARTNERS_IMPORT_PARTNERS_TITLE: "#white #b @market_imports! [Market.GetName] Importuje z [Scope.GetMarket.GetOwner.GetFlagTextIcon] [Scope.GetMarket.GetName]\n#!#!Ilość: [TradePartnersGetImportsFrom(Market, Scope.GetMarket)|v0]"
+ TRADE_PARTNERS_EXPORT_PARTNERS_TITLE: "#white #b @market_exports! [Market.GetName] Eksportuje do [Scope.GetMarket.GetOwner.GetFlagTextIcon] [Scope.GetMarket.GetName]\n#!#!Ilość: [TradePartnersGetExportsTo(Market, Scope.GetMarket)|v0]"
+ TRADE_PARTNERS_EXPORTED_GOODS_TITLE: "Eksportowane dobra:"
+ TRADE_PARTNERS_IMPORTED_GOODS_TITLE: "Importowane dobra:"
+ TRADE_PARTNERS_EXPORT_PARTNERS_GRAPH_TITLE: "Partnerzy Eksportowi"
+ TRADE_PARTNERS_IMPORT_PARTNERS_GRAPH_TITLE: "Partnerzy Importowi"
