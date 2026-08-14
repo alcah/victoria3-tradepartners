@@ -20,6 +20,7 @@ Supported Languages (big thanks to contributors for non-English localisation):
  - Portuguese (@Bulbasaurito)
  - Russian (@ищу работу)
  - German (@Maxim-604)
+ - Polish (@Dokeł)
  
 Contributions are very welcome, especially for localisation.
 https://github.com/alcah/victoria3-tradepartners
