@@ -1,22 +1,55 @@
-﻿on_monthly_pulse = {
+on_game_started_after_lobby = {
 	on_actions = {
- 		on_actions_trade_partners_market_update
+		on_action_check_observer_mode_status
+		on_actions_trade_partners_market_update
 	}
 }
 
-on_game_started_after_lobby = {
+on_yearly_pulse = {
+	on_actions = {
+		on_action_check_observer_mode_status
+	}
+}
+
+on_monthly_pulse = {
 	on_actions = {
 		on_actions_trade_partners_market_update
 	}
 }
 
-on_actions_trade_partners_market_update = {
+on_action_check_observer_mode_status = {
 	effect = {
-		every_market = {
+		if = {
 			limit = {
-				market_trade = { value > 0 }
+				NOT = { has_game_rule = trade_partner_disabled }
+				NOT = { any_country = { is_player = yes } }
 			}
-			trade_partners_market_update = yes
+			set_global_variable = global_is_observer_mode
+		}
+		else = {
+			if = {
+				limit = { has_global_variable = global_is_observer_mode }
+				remove_global_variable = global_is_observer_mode
+			}
+		}
+	}
+}
+
+on_actions_trade_partners_market_update = {
+	trigger = {
+		NOT = { has_game_rule = trade_partner_disabled }
+	}
+	effect = {
+		if = {
+			limit = {
+				has_global_variable = global_is_observer_mode
+			}
+			every_market = {
+				limit = {
+					market_trade = { value > 0 }
+				}
+				trade_partners_market_update = yes
+			}
 		}
 	}
 }

@@ -1,4 +1,4 @@
-﻿trade_partners_set_import_partners = {
+trade_partners_set_import_partners = {
 	save_temporary_scope_as = base_market
 
 	owner = {
@@ -52,7 +52,26 @@ trade_partners_set_export_partners = {
 	}
 }
 
+# Update both export and import partner lists based on game rules
 trade_partners_market_update = {
-	trade_partners_set_export_partners = yes
-	trade_partners_set_import_partners = yes
+	# Execute logic only if game rules allow it
+	if = {
+		limit = {
+			# Rule is NOT disabled
+			NOT = { has_game_rule = trade_partner_disabled }
+
+			# Game rule condition check: Show all OR (Show player only AND market owner is player)
+			OR = {
+				has_game_rule = trade_partner_show_all
+				AND = {
+					has_game_rule = trade_partner_players_only
+					owner = { is_player = yes }
+				}
+			}
+		}
+
+		# Perform original updates
+		trade_partners_set_export_partners = yes
+		trade_partners_set_import_partners = yes
+	}
 }

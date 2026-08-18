@@ -1,6 +1,7 @@
-﻿types market_panel {
+types market_panel {
     type trade_partners_charts = flowcontainer {
         spacing = 10
+		visible = "[Not(IsDataModelEmpty( Market.GetOwner.MakeScope.GetList('trade_partners_all_markets_export') ))]"
         compact_chart = {
             blockoverride "datamodel" {
                 datamodel = "[Market.GetOwner.MakeScope.GetList('trade_partners_all_markets_export')]"

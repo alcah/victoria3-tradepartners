@@ -1,4 +1,4 @@
-﻿# COPY-PASTED FOR NOW
+# COPY-PASTED FOR NOW
 @panel_width_minus_10 = 530			# used to be 450
 @panel_width = 540  				# used to be 460
 @panel_width_half = 270				# used to be 230
@@ -300,6 +300,14 @@ types market_panel
 						spacing = 10
 						margin_bottom = 10
 						parentanchor = hcenter
+						
+						state = {
+							name = recalc_trade
+							next = recalc_trade
+							duration = 5
+							trigger_on_create = yes
+							on_finish = "[GetScriptedGui('trade_partners_scripted_gui').Execute(GuiScope.SetRoot(MarketPanel.GetMarket.MakeScope).End)]"
+						}
 						trade_partners_charts = {}
 					}
 				}

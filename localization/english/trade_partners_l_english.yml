@@ -1,4 +1,4 @@
-﻿l_english:
+l_english:
  TRADE_PARTNERS_MARKET_TOOLTIP_IMPORT: "@market_imports! Imports [TradePartnersGetImportsFrom(Market, GetPlayer.GetMarket)|v0] total goods from the [GetPlayer.GetMarket.GetOwner.GetFlagTextIcon] [GetPlayer.GetMarket.GetName]"
  TRADE_PARTNERS_MARKET_TOOLTIP_EXPORT: "@market_exports! Exports [TradePartnersGetExportsTo(Market, GetPlayer.GetMarket)|v0] total goods to the [GetPlayer.GetMarket.GetOwner.GetFlagTextIcon] [GetPlayer.GetMarket.GetName]"
  TRADE_PARTNERS_MARKET_TOOLTIP_VALUES: "[MakeLineIf(TradePartnersIsImporterFrom(Market, GetPlayer.GetMarket),'TRADE_PARTNERS_MARKET_TOOLTIP_IMPORT')][MakeLineIf(TradePartnersIsExporterTo(Market, GetPlayer.GetMarket),'TRADE_PARTNERS_MARKET_TOOLTIP_EXPORT')]"
@@ -10,3 +10,11 @@
  TRADE_PARTNERS_IMPORTED_GOODS_TITLE: "Imported goods:"
  TRADE_PARTNERS_EXPORT_PARTNERS_GRAPH_TITLE: "Export Partners"
  TRADE_PARTNERS_IMPORT_PARTNERS_GRAPH_TITLE: "Import Partners"
+ rule_trade_partners_chart_display: "Trade Partner Chart Display"
+ rule_trade_partners_chart_display_desc: "Controls whether the trade partner chart is calculated and displayed in the market panel."
+ setting_trade_partner_show_all: "Show All"
+ setting_trade_partner_show_all_desc: "Calculate and show trade partner charts for all active markets (AI and Players)."
+ setting_trade_partner_players_only: "Players Only"
+ setting_trade_partner_players_only_desc: "Only calculate and show trade partner charts for player-owned markets to optimize performance."
+ setting_trade_partner_disabled: "Disabled"
+ setting_trade_partner_disabled_desc: "Completely disable the trade partner chart feature."
