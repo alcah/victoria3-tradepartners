@@ -218,6 +218,7 @@ type RegularTooltip_MarketOtherMarketImportExport = RegularTooltip {
 type FancyTooltip_Market = FancyTooltipWidgetType {
 		blockoverride "tooltip_content_before_before" {
 			flowcontainer = {
+				visible = "[Not(GetPlayer.GetMarket.IsSame(Market.Self))]"
 				direction = vertical
 				custom_tooltip_textbox = {
 					text = "TRADE_PARTNERS_MARKET_TOOLTIP_VALUES"
