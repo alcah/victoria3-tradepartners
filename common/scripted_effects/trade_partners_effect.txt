@@ -56,3 +56,17 @@ trade_partners_market_update = {
 	trade_partners_set_export_partners = yes
 	trade_partners_set_import_partners = yes
 }
+
+trade_partners_market_update_observer = {
+	if = {
+		limit = {
+			NOT = { any_country = { is_player = yes } }
+		}
+		every_market = {
+			limit = {
+				market_trade = { value > 0 }
+			}
+			trade_partners_market_update = yes
+		}
+	}
+}
