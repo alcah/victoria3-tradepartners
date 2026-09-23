@@ -1,0 +1,12 @@
+﻿l_japanese:
+ TRADE_PARTNERS_MARKET_TOOLTIP_IMPORT: "@market_imports! [GetPlayer.GetMarket.GetOwner.GetFlagTextIcon] [GetPlayer.GetMarket.GetName]から[TradePartnersGetImportsFrom(Market, GetPlayer.GetMarket)|v0]輸入"
+ TRADE_PARTNERS_MARKET_TOOLTIP_EXPORT: "@market_exports! [GetPlayer.GetMarket.GetOwner.GetFlagTextIcon] [GetPlayer.GetMarket.GetName]へ[TradePartnersGetExportsTo(Market, GetPlayer.GetMarket)|v0]輸出"
+ TRADE_PARTNERS_MARKET_TOOLTIP_VALUES: "[MakeLineIf(TradePartnersIsImporterFrom(Market, GetPlayer.GetMarket),'TRADE_PARTNERS_MARKET_TOOLTIP_IMPORT')][MakeLineIf(TradePartnersIsExporterTo(Market, GetPlayer.GetMarket),'TRADE_PARTNERS_MARKET_TOOLTIP_EXPORT')]"
+ TRADE_PARTNERS_OTHER_MARKET_EXPORTS_TOOLTIP: "#white #b @market_exports! [Market.GetName]から[GetPlayer.GetMarket.GetOwner.GetFlagTextIcon][GetPlayer.GetMarket.GetName]への輸出\n#!#!数量: [TradePartnersGetExportsTo(Market, GetPlayer.GetMarket)|v0]"
+ TRADE_PARTNERS_OTHER_MARKET_IMPORTS_TOOLTIP: "#white #b @market_imports! [GetPlayer.GetMarket.GetOwner.GetFlagTextIcon] [GetPlayer.GetMarket.GetName]から[Market.GetName]への輸入\n#!#!数量: [TradePartnersGetImportsFrom(Market, GetPlayer.GetMarket)|v0]"
+ TRADE_PARTNERS_IMPORT_PARTNERS_TITLE: "#white #b @market_imports! [Scope.GetMarket.GetOwner.GetFlagTextIcon] [Scope.GetMarket.GetName]から[Market.GetName]への輸入\n#!#!数量: [TradePartnersGetImportsFrom(Market, Scope.GetMarket)|v0]"
+ TRADE_PARTNERS_EXPORT_PARTNERS_TITLE: "#white #b @market_exports! [Market.GetName]から[Scope.GetMarket.GetOwner.GetFlagTextIcon] [Scope.GetMarket.GetName]への輸出\n#!#!数量: [TradePartnersGetExportsTo(Market, Scope.GetMarket)|v0]"
+ TRADE_PARTNERS_EXPORTED_GOODS_TITLE: "輸出商品:"
+ TRADE_PARTNERS_IMPORTED_GOODS_TITLE: "輸入商品:"
+ TRADE_PARTNERS_EXPORT_PARTNERS_GRAPH_TITLE: "輸出パートナー"
+ TRADE_PARTNERS_IMPORT_PARTNERS_GRAPH_TITLE: "輸入パートナー"
