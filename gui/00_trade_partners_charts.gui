@@ -1,6 +1,6 @@
 ﻿types market_panel {
     type trade_partners_charts = flowcontainer {
-        spacing = 10
+        spacing = 5
         compact_chart = {
             blockoverride "datamodel" {
                 datamodel = "[Market.GetOwner.MakeScope.GetList('trade_partners_all_markets_export')]"
@@ -23,6 +23,17 @@
 
             blockoverride "pieslice" {
                 value = "[GuiScope.SetRoot( Scope.GetMarket.MakeScope ).AddScope('base_market', Market.MakeScope).ScriptValue('trade_partners_total_imports_from_target')]"
+            }
+
+            blockoverride "chart_empty_state" {
+                textbox = {
+                    visible = "[EqualTo_int32(GetDataModelSize(Market.GetOwner.MakeScope.GetList('trade_partners_all_markets_export')), '(int32)0')]"
+                    parentanchor = center
+                    autoresize = yes
+                    align = nobaseline
+                    using = empty_state_text_properties
+                    text = "NONE"
+                }
             }
 
             blockoverride "color" {
@@ -72,6 +83,17 @@
 
             blockoverride "pieslice" {
                 value = "[GuiScope.SetRoot( Scope.GetMarket.MakeScope ).AddScope('base_market', Market.MakeScope).ScriptValue('trade_partners_total_exports_to_target')]"
+            }
+
+            blockoverride "chart_empty_state" {
+                textbox = {
+                    visible = "[EqualTo_int32(GetDataModelSize(Market.GetOwner.MakeScope.GetList('trade_partners_all_markets_import')), '(int32)0')]"
+                    parentanchor = center
+                    autoresize = yes
+                    align = nobaseline
+                    using = empty_state_text_properties
+                    text = "NONE"
+                }
             }
 
             blockoverride "color" {
